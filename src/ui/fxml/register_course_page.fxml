@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="500.0" stylesheets="@../css/ui.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.RegisterCoursePageController">
+   <children>
+      <AnchorPane layoutX="78.0" layoutY="91.0" prefHeight="481.0" prefWidth="472.0" AnchorPane.leftAnchor="15.0">
+         <children>
+            <VBox prefHeight="403.0" prefWidth="450.0" spacing="40.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXTextField focusColor="#004203" labelFloat="true" prefHeight="40.0" prefWidth="340.0" promptText="Course code" styleClass="add-course-text-field">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#004203" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="340.0" promptText="Course title" styleClass="add-course-text-field">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#004203" labelFloat="true" layoutX="10.0" layoutY="35.0" prefHeight="40.0" prefWidth="340.0" promptText="Session" styleClass="add-course-text-field">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#004203" labelFloat="true" layoutX="10.0" layoutY="60.0" prefHeight="40.0" prefWidth="340.0" promptText="Credit unit" styleClass="add-course-text-field">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </JFXTextField>
+                  <JFXComboBox focusColor="#004203" labelFloat="true" prefHeight="40.0" prefWidth="450.0" promptText="Semester" style="-fx-font-size: 18;">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </JFXComboBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+               </children>
+               <padding>
+                  <Insets top="40.0" />
+               </padding>
+            </VBox>
+            <JFXButton layoutY="418.0" prefHeight="60.0" prefWidth="236.0" ripplerFill="#ff9616" style="-fx-background-color: #130000;" text="Add Course" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="231.0" layoutY="418.0" prefHeight="60.0" prefWidth="236.0" ripplerFill="#ff9616" style="-fx-background-color: #130000;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-2.0" layoutY="-3.0" prefHeight="59.0" prefWidth="503.0" style="-fx-background-color: #130000;">
+         <children>
+            <Label layoutX="113.0" layoutY="12.0" text="COURSE REGISTRATION" textFill="WHITE" AnchorPane.leftAnchor="113.0">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

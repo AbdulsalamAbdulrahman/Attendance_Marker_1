@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1320.0" style="-fx-border-color: #130000; -fx-border-width: 5;" stylesheets="@../css/ui.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.UserHomePageController">
+   <children>
+      <AnchorPane layoutX="6.0" layoutY="-18.0" prefHeight="60.0" prefWidth="1350.0" style="-fx-background-color: #eeeeee; -fx-border-color: #130000; -fx-border-width: 4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <JFXButton contentDisplay="TOP" layoutX="34.0" layoutY="7.0" onAction="#logout" text="Sign out" textFill="#130000">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="POWER_OFF" size="30.0" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <HBox layoutX="1292.0" layoutY="5.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#minimizeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="#130000" glyphName="SORT_DOWN" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="GRAPHIC_ONLY" onAction="#maximizeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="#130000" glyphName="SQUARE_ALT" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="41.0" layoutY="10.0" onAction="#closeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="#130000" glyphName="REMOVE" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <GlyphsStack layoutX="465.0" layoutY="58.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1200.0" layoutY="10.0" prefHeight="156.0" prefWidth="180.0">
+         <children>
+            <JFXButton contentDisplay="TOP" graphicTextGap="0.0" layoutX="-27.0" layoutY="-2.0" prefWidth="100.0" text="Admin">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="USER" size="50.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="44.0" layoutY="96.0" prefHeight="591.0" prefWidth="393.0" visible="false">
+         <children>
+            <JFXListView fx:id="courseListView" layoutX="1.0" layoutY="40.0" prefHeight="468.0" prefWidth="360.0" style="-fx-border-color: #130000; -fx-border-width: 4;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXListView>
+            <Label layoutX="1.0" text="REGISTERED COURSES" textFill="#130000">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox layoutY="509.0" prefHeight="66.0" prefWidth="390.0">
+               <children>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#editCourseDetails" prefHeight="60.0" prefWidth="180.0" text="Edit Course Details">
+                     <graphic>
+                        <FontAwesomeIconView fill="#130000" glyphName="PENCIL_SQUARE_ALT" size="40.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" onAction="#removeCourse" prefHeight="60.0" prefWidth="180.0" text="Remove Course">
+                     <graphic>
+                        <FontAwesomeIconView fill="#130000" glyphName="CLOSE" size="40.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <GridPane alignment="CENTER" hgap="50.0" layoutX="563.0" layoutY="139.0" prefWidth="700.0" vgap="70.0" visible="false" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="170.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#viewStudentRecords" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: #8F8888; -fx-border-radius: 20; -fx-border-width: 5;" text="VIEW RECORDS" textFill="#130000">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="FILE_TEXT_ALT" size="130.0" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#markAttendance" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: #8F8888; -fx-border-radius: 20; -fx-border-width: 5;" text="MARK ATTENDANCE" GridPane.columnIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="CHECK_SQUARE_ALT" size="130.0" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" onAction="#addNewCourse" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: #8F8888; -fx-border-radius: 20; -fx-border-width: 5;" text="ADD NEW COURSE" textFill="#130000" GridPane.rowIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="PLUS" size="130.0" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" contentDisplay="TOP" onAction="#editLecturerProfile" prefHeight="200.0" prefWidth="250.0" style="-fx-border-color: #8F8888; -fx-border-radius: 20; -fx-border-width: 5;" text="EDIT PROFILE" textFill="#130000" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <graphic>
+                  <FontAwesomeIconView fill="#130000" glyphName="PENCIL_SQUARE_ALT" size="130.0" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </JFXButton>
+         </children>
+      </GridPane>
+      <TabPane layoutX="19.0" layoutY="94.0" prefHeight="608.0" prefWidth="1334.0" style="-fx-border-color: #130000; -fx-border-width: 5; -fx-text-fill: #130000;" tabClosingPolicy="UNAVAILABLE" tabMinHeight="60.0" tabMinWidth="667.0">
+        <tabs>
+          <Tab style="-fx-text-fill: #130000; -fx-font-fize: 20;" text="Student">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table" layoutX="-76.0" layoutY="-118.0" onMouseClicked="#tableClicked" prefHeight="465.0" prefWidth="938.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <columns>
+                              <TableColumn fx:id="id" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="firstName" editable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="First Name" />
+                              <TableColumn fx:id="lastName" editable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Last Name" />
+                              <TableColumn fx:id="otherName" editable="false" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Other Name" />
+                              <TableColumn fx:id="sex" editable="false" maxWidth="80.0" minWidth="80.0" text="Sex" />
+                              <TableColumn fx:id="regNumber" editable="false" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" text="Matric Number" />
+                              <TableColumn editable="false" maxWidth="180.0" minWidth="180.0" prefWidth="180.0" text="Matric Number" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="21.0" layoutY="490.0" mnemonicParsing="false" onAction="#addStudent" prefHeight="39.0" prefWidth="225.0" text="Add Student" AnchorPane.topAnchor="490.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="#130000" glyphName="PLUS" size="20.0" />
+                           </graphic>
+                        </Button>
+                        <Button layoutX="255.0" layoutY="490.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="39.0" prefWidth="225.0" text="Remove Student">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <graphic>
+                              <FontAwesomeIconView fill="#130000" glyphName="TIMES" size="20.0" />
+                           </graphic>
+                        </Button>
+                        <TitledPane collapsible="false" layoutX="787.0" layoutY="20.0" prefHeight="512.0" prefWidth="350.0" text="Details" textFill="#130000" AnchorPane.rightAnchor="0.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <content>
+                              <VBox>
+                                 <children>
+                                    <AnchorPane prefHeight="162.0" prefWidth="340.0">
+                                       <children>
+                                          <Pane layoutX="172.0" prefHeight="130.0" prefWidth="130.0" style="-fx-border-color: #270101; -fx-border-radius: 10;" AnchorPane.rightAnchor="10.0">
+                                             <children>
+                                                <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </AnchorPane>
+                                    <VBox prefHeight="200.0" prefWidth="368.0" spacing="25.0">
+                                       <children>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" prefHeight="28.0" prefWidth="422.0" promptText="First Name" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="422.0" promptText="Last Name" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="422.0" promptText="Other Name" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="94.0" prefHeight="28.0" prefWidth="422.0" promptText="Matriculation Number" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="214.0" prefHeight="28.0" prefWidth="422.0" promptText="Sex" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                          <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="282.0" prefHeight="28.0" prefWidth="422.0" promptText="Number of days present" unFocusColor="#270101">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </JFXTextField>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+          <Tab style="-fx-text-fill: #130000; -fx-font-fize: 20;" text="Lecturer">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="1300.0">
+                           <children>
+                              <TableView fx:id="lectTable" layoutX="220.0" layoutY="-42.0" onMouseClicked="#lectTableClicked" prefHeight="500.0" prefWidth="900.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                 <columns>
+                                    <TableColumn fx:id="lectId" editable="false" maxWidth="65.0" minWidth="65.0" prefWidth="48.333335876464844" text="Id" />
+                                    <TableColumn fx:id="lectTitle" editable="false" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" text="Title" />
+                                    <TableColumn fx:id="lectFirstName" editable="false" maxWidth="200.0" minWidth="190.33334350585938" prefWidth="200.0" text="First Name" />
+                                    <TableColumn fx:id="lectLastName" maxWidth="200.0" minWidth="0.0" prefWidth="200.0" text="Last Name" />
+                                    <TableColumn fx:id="lectOtherName" editable="false" maxWidth="200.0" minWidth="121.3333740234375" prefWidth="200.0" text="Other Name" />
+                                    <TableColumn fx:id="lectDepartment" editable="false" maxWidth="207.0" minWidth="200.0" prefWidth="207.0" text="Department" />
+                                 </columns>
+                              </TableView>
+                              <TitledPane animated="false" collapsible="false" layoutX="1080.0" layoutY="-180.0" prefHeight="500.0" prefWidth="337.0" text="Details" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="368.0" style="-fx-background-color: #ECECEC;">
+                                       <children>
+                                          <VBox layoutX="6.0" layoutY="43.0" prefHeight="338.0" prefWidth="318.0" spacing="30.0">
+                                             <children>
+                                                <JFXTextField focusColor="#ffa100" labelFloat="true" promptText="Title" unFocusColor="#130000">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField focusColor="#ffa100" labelFloat="true" layoutX="10.0" layoutY="10.0" promptText="First Name" unFocusColor="#130000">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField focusColor="#ffa100" labelFloat="true" layoutX="10.0" layoutY="43.0" promptText="Last Name" unFocusColor="#130000">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField focusColor="#ffa100" labelFloat="true" layoutX="10.0" layoutY="43.0" promptText="Other Name" unFocusColor="#130000">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                                <JFXTextField focusColor="#ffa100" labelFloat="true" layoutX="10.0" layoutY="109.0" promptText="Department" unFocusColor="#130000">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </JFXTextField>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TitledPane>
+                              <Button layoutX="965.0" layoutY="494.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="50.0" prefWidth="335.0" text="Remove Student" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="2.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontAwesomeIconView fill="#130000" glyphName="TIMES" size="20.0" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+         <effect>
+            <DropShadow />
+         </effect>
+      </TabPane>
+   </children>
+</AnchorPane>

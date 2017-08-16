@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="1350.0" style="-fx-background-color: #130000;" stylesheets="@../css/ui.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controller.CreateAccountPageController">
+   <children>
+      <AnchorPane prefHeight="60.0" prefWidth="1350.0" style="-fx-background-color: #130000;">
+         <children>
+            <HBox layoutX="1292.0" layoutY="5.0" AnchorPane.rightAnchor="8.0">
+               <children>
+                  <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#minimizeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="SORT_DOWN" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="GRAPHIC_ONLY" onAction="#maximizeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="SQUARE_ALT" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="41.0" layoutY="10.0" onAction="#closeWindow" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="20.0" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <GlyphsStack layoutX="465.0" layoutY="58.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="111.0" layoutY="166.0" prefHeight="372.0" prefWidth="1141.0">
+         <children>
+            <AnchorPane layoutY="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="1.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="60.0" layoutY="440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="420.0">
+               <children>
+                  <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="21.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="-36.0" prefWidth="1141.0">
+               <children>
+                  <Label layoutX="40.0" layoutY="106.0" text="Title" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="156.0" text="First Name:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="206.0" text="Last Name:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="256.0" text="Other Name:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="306.0" text="E-mail:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="356.0" text="Phone Number:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="titleTextField" layoutX="242.0" layoutY="96.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="firstNameTextField" layoutX="242.0" layoutY="146.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lastNameTextField" layoutX="242.0" layoutY="196.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="otherNameTextField" layoutX="242.0" layoutY="246.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="emailTextField" layoutX="242.0" layoutY="296.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="phoneNumberTextField" layoutX="242.0" layoutY="346.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="632.0" layoutY="150.0" text="New Password:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="632.0" layoutY="200.0" text="Confirm Password:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="632.0" layoutY="250.0" text="Security Question:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="632.0" layoutY="300.0" text="Answer:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="406.0" text="Department:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="630.0" layoutY="99.0" text="Staff ID:" textFill="#685f5f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="answerTextField" layoutX="834.0" layoutY="295.0" prefHeight="39.0" prefWidth="304.0" promptText="answer to security question above" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="departmentTextField" layoutX="242.0" layoutY="396.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="staffIdTextField" layoutX="834.0" layoutY="89.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="newPasswordPasswordField" layoutX="833.0" layoutY="141.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <PasswordField fx:id="confirmPasswordPasswordField" layoutX="833.0" layoutY="190.0" prefHeight="39.0" prefWidth="304.0" styleClass="regist-text-fields">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+                  <ComboBox layoutX="834.0" layoutY="242.0" prefHeight="39.0" prefWidth="304.0" promptText="Security question" style="-fx-font-size: 16;" styleClass="regist-text-fields" />
+                  <Label layoutX="42.0" layoutY="-7.0" text="STAFF REGISTRATION" textFill="WHITE">
+                     <font>
+                        <Font name="FontAwesome Regular" size="36.0" />
+                     </font>
+                  </Label>
+                  <JFXButton layoutX="835.0" layoutY="370.0" prefHeight="53.0" prefWidth="306.0" style="-fx-background-color: #dddddd;" styleClass="register-button" text="REGISTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Label layoutX="904.0" layoutY="635.0" text="Already have an account?" textFill="#c9c2c2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="1122.0" layoutY="628.0" text="Sign in here" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
