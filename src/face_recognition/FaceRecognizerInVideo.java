@@ -1,5 +1,4 @@
-/*
-package utils;
+package face_recognition;
 
 import java.io.File;
 
@@ -17,12 +16,6 @@ import static org.bytedeco.javacpp.opencv_highgui.*;
 import static org.bytedeco.javacpp.opencv_imgproc.*;
 import static org.bytedeco.javacpp.opencv_objdetect.*;
 
-*/
-/**
- * This is an example how to detect face in a video file with javacv
- * @author Vincent He (chinadragon0515@gmail.com)
- *
- *//*
 
 public class FaceRecognizerInVideo {
 
@@ -112,4 +105,3 @@ public class FaceRecognizerInVideo {
     }
 
 }
-*/
