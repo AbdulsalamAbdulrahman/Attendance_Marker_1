@@ -1,0 +1,46 @@
+.add-course-text-field:hover{
+-fx-border-color:  #270101;
+}
+
+.register-button:focused{
+-fx-background-color:F0FF00;
+}
+
+.regist-text-fields:hover{
+-fx-background-color:white;
+-fx-text-inner-color:#3F48CC;
+}
+.regist-text-fields:focused{
+-fx-border-color:#3F48CC;
+-fx-text-inner-color:#3F48CC;
+}
+
+.regist-text-fields{
+-fx-text-inner-color:white;
+-fx-border-color:white;
+-fx-background-color:transparent;
+
+}
+
+.tab-pane .tab
+{
+    -fx-tab-min-height:60px;
+}
+
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #130000;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #ffffff;
+}
+

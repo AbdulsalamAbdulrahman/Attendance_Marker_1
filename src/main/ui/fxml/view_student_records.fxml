@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.GlyphsStack?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.controller.ViewStudentRecordsController">
+   <children>
+      <AnchorPane layoutX="44.0" layoutY="69.0" prefHeight="592.0" prefWidth="824.0">
+         <children>
+            <TableView layoutX="4.0" layoutY="9.0" prefHeight="576.0" prefWidth="805.0" style="-fx-border-color: #130000; -fx-border-width: 5;">
+              <columns>
+                <TableColumn prefWidth="160.0" resizable="false" text="First Name" />
+                <TableColumn prefWidth="160.0" resizable="false" text="Last Name" />
+                  <TableColumn prefWidth="160.0" resizable="false" text="Other Name" />
+                  <TableColumn prefWidth="150.0" resizable="false" text="Matric Number" />
+                  <TableColumn prefWidth="150.0" resizable="false" text="N0. of Days Present" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="884.0" layoutY="68.0" prefHeight="517.0" prefWidth="444.0">
+         <children>
+            <Pane layoutX="220.0" layoutY="16.0" prefHeight="180.0" prefWidth="180.0" style="-fx-border-color: #270101; -fx-border-radius: 10;">
+               <children>
+                  <ImageView fitHeight="170.0" fitWidth="170.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <VBox layoutX="11.0" layoutY="242.0" prefHeight="250.0" prefWidth="390.0" spacing="25.0" AnchorPane.topAnchor="242.0">
+               <children>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" prefHeight="28.0" prefWidth="422.0" promptText="First Name" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="422.0" promptText="Last Name" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="422.0" promptText="Other Name" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="94.0" prefHeight="28.0" prefWidth="422.0" promptText="Matriculation Number" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="214.0" prefHeight="28.0" prefWidth="422.0" promptText="Sex" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField focusColor="#ffc002" labelFloat="true" layoutX="10.0" layoutY="282.0" prefHeight="28.0" prefWidth="422.0" promptText="Number of days present" unFocusColor="#270101">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <JFXButton buttonType="RAISED" layoutX="896.0" layoutY="608.0" prefHeight="40.0" prefWidth="393.0" style="-fx-background-color: #130000;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <AnchorPane prefHeight="60.0" prefWidth="1350.0" style="-fx-background-color: #211D1D;">
+         <children>
+            <JFXButton layoutX="35.0" layoutY="7.0" onAction="#logout" text="Back" textFill="WHITE">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" size="30.0" />
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <GlyphsStack layoutX="465.0" layoutY="58.0" />
+            <Label layoutX="558.0" layoutY="6.0" text="STUDENT RECORD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="1227.0" layoutY="22.0" text="COURSE NAME" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
