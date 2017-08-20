@@ -1,120 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import de.jensd.fx.glyphs.GlyphsStack?>
+
+<?import com.jfoenix.controls.*?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.GlyphsStack?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<AnchorPane prefHeight="700.0" prefWidth="1066.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.controller.RegisterNewStudentController">
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111"
+            fx:controller="main.ui.controller.RegisterNewStudentController">
    <children>
-      <AnchorPane layoutX="629.0" layoutY="64.0">
-         <children>
-            <AnchorPane prefHeight="492.0" prefWidth="404.0">
-               <children>
-                  <Pane layoutX="216.0" layoutY="17.0" prefHeight="150.0" prefWidth="175.0" style="-fx-border-color: #270101; -fx-border-radius: 10;">
-                     <children>
-                        <ImageView fx:id="profilePictureImageView" fitHeight="140.0" fitWidth="164.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" />
-                     </children>
-                  </Pane>
-                  <VBox layoutX="14.0" layoutY="190.0" prefHeight="246.0" prefWidth="372.0" spacing="40.0">
-                     <children>
-                        <JFXTextField fx:id="firstNameTextField" focusColor="#eb4a00" labelFloat="true" prefHeight="28.0" prefWidth="422.0" promptText="First Name" unFocusColor="#270101">
+       <AnchorPane prefHeight="700.0" prefWidth="1066.0"
+                   style="-fx-background-color: white; -fx-border-color: #FF7F27; -fx-border-width: 10;">
+           <children>
+               <AnchorPane layoutX="629.0" layoutY="64.0">
+                   <children>
+                       <AnchorPane prefHeight="492.0" prefWidth="404.0">
+                           <children>
+                               <Pane layoutX="216.0" layoutY="17.0" prefHeight="150.0" prefWidth="175.0"
+                                     style="-fx-border-color: #270101; -fx-border-radius: 10;">
+                                   <children>
+                                       <ImageView fx:id="profilePictureImageView" fitHeight="140.0" fitWidth="164.0"
+                                                  layoutX="5.0" layoutY="5.0" pickOnBounds="true"/>
+                                   </children>
+                               </Pane>
+                               <VBox layoutX="14.0" layoutY="190.0" prefHeight="246.0" prefWidth="372.0" spacing="40.0">
+                                   <children>
+                                       <JFXTextField fx:id="firstNameTextField" focusColor="#eb4a00" labelFloat="true"
+                                                     prefHeight="28.0" prefWidth="422.0" promptText="First Name"
+                                                     unFocusColor="#270101">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </JFXTextField>
+                                       <JFXTextField fx:id="lastNameTextField" focusColor="#eb4a00" labelFloat="true"
+                                                     layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="422.0"
+                                                     promptText="Last Name" unFocusColor="#270101">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </JFXTextField>
+                                       <JFXTextField fx:id="otherNameTextField" focusColor="#eb4a00" labelFloat="true"
+                                                     layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="422.0"
+                                                     promptText="Other Name" unFocusColor="#270101">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </JFXTextField>
+                                       <JFXTextField fx:id="matricNumberTextField" focusColor="#eb4a00"
+                                                     labelFloat="true" layoutX="10.0" layoutY="94.0" prefHeight="28.0"
+                                                     prefWidth="422.0" promptText="Matriculation Number"
+                                                     unFocusColor="#270101">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </JFXTextField>
+                                       <JFXComboBox fx:id="sexCombo" focusColor="#eb4a00" prefHeight="30.0"
+                                                    prefWidth="210.0" promptText="Sex" style="-fx-font-size: 14;"
+                                                    unFocusColor="#130000"/>
+                                   </children>
+                               </VBox>
+                           </children>
+                       </AnchorPane>
+                       <JFXButton buttonType="RAISED" layoutX="4.0" layoutY="516.0" onAction="#saveStudent"
+                                  prefHeight="50.0" prefWidth="372.0" style="-fx-background-color: #FF7F27;" text="Save"
+                                  textFill="WHITE" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
                            <font>
-                              <Font size="14.0" />
+                               <Font size="18.0"/>
                            </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="lastNameTextField" focusColor="#eb4a00" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="28.0" prefWidth="422.0" promptText="Last Name" unFocusColor="#270101">
+                       </JFXButton>
+                   </children>
+               </AnchorPane>
+               <AnchorPane layoutX="14.0" layoutY="63.0" prefHeight="560.0" prefWidth="580.0">
+                   <children>
+                       <AnchorPane layoutX="17.0" layoutY="17.0" prefHeight="400.0" prefWidth="550.0"
+                                   style="-fx-border-color: #FF7F27; -fx-border-radius: 10; -fx-border-width: 5;"
+                                   AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="13.0">
+                           <children>
+                               <ImageView fx:id="cameraViewImageView" fitHeight="380.0" fitWidth="530.0"
+                                          pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="5.0"
+                                          AnchorPane.topAnchor="5.0"/>
+                           </children>
+                       </AnchorPane>
+                       <JFXButton fx:id="startCameraBtn" buttonType="RAISED" layoutX="13.0" layoutY="519.0"
+                                  onAction="#startCamera" prefHeight="50.0" prefWidth="557.0"
+                                  style="-fx-background-color: #FF7F27;" text="Start Camera" textFill="WHITE"
+                                  AnchorPane.leftAnchor="13.0">
                            <font>
-                              <Font size="14.0" />
+                               <Font size="18.0"/>
                            </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="otherNameTextField" focusColor="#eb4a00" labelFloat="true" layoutX="10.0" layoutY="38.0" prefHeight="28.0" prefWidth="422.0" promptText="Other Name" unFocusColor="#270101">
+                       </JFXButton>
+                       <AnchorPane fx:id="errorPane" layoutX="88.0" layoutY="430.0" visible="false">
+                           <children>
+                               <VBox>
+                                   <children>
+                                       <Label alignment="CENTER" prefHeight="27.0" prefWidth="408.0"
+                                              text="Error capturing image!" textAlignment="CENTER" textFill="RED">
+                                           <font>
+                                               <Font name="System Bold" size="18.0"/>
+                                           </font>
+                                       </Label>
+                                       <Label alignment="CENTER" prefHeight="20.0" prefWidth="406.0"
+                                              text="Please make sure the enviroment is well illuminated "
+                                              textAlignment="CENTER" textFill="RED">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </Label>
+                                       <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="20.0"
+                                              prefWidth="407.0"
+                                              text="the student is starring directly at the camera light and try again"
+                                              textAlignment="CENTER" textFill="RED">
+                                           <font>
+                                               <Font size="14.0"/>
+                                           </font>
+                                       </Label>
+                                   </children>
+                               </VBox>
+                           </children>
+                       </AnchorPane>
+                   </children>
+               </AnchorPane>
+               <AnchorPane layoutX="-30.0" layoutY="-86.0" prefHeight="44.0" prefWidth="1208.0"
+                           AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="0.0"/>
+               <AnchorPane prefHeight="40.0" prefWidth="1350.0" style="-fx-background-color: #FF7F27;"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                   <children>
+                       <HBox layoutX="1292.0" layoutY="5.0" AnchorPane.rightAnchor="8.0">
+                           <children>
+                               <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#minimizeWindow" text=" "/>
+                               <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#maximizeWindow" text=" "/>
+                               <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="41.0" layoutY="10.0"
+                                          onAction="#closeWindow" text=" ">
+                                   <graphic>
+                                       <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="20.0"/>
+                                   </graphic>
+                               </JFXButton>
+                           </children>
+                       </HBox>
+                       <GlyphsStack layoutX="465.0" layoutY="58.0"/>
+                       <Label layoutX="38.0" text="ADD NEW STUDENT" textFill="WHITE">
                            <font>
-                              <Font size="14.0" />
+                               <Font name="System Bold" size="30.0"/>
                            </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="matricNumberTextField" focusColor="#eb4a00" labelFloat="true" layoutX="10.0" layoutY="94.0" prefHeight="28.0" prefWidth="422.0" promptText="Matriculation Number" unFocusColor="#270101">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXComboBox fx:id="sexCombo" focusColor="#eb4a00" prefHeight="30.0" prefWidth="210.0" promptText="Sex" style="-fx-font-size: 14;" unFocusColor="#130000" />
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutX="4.0" layoutY="516.0" onAction="#saveStudent" prefHeight="50.0" prefWidth="372.0" style="-fx-background-color: #130000;" text="Save" textFill="WHITE" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="63.0" prefHeight="560.0" prefWidth="580.0">
-         <children>
-            <AnchorPane layoutX="17.0" layoutY="17.0" prefHeight="400.0" prefWidth="550.0" style="-fx-border-color: #270101; -fx-border-radius: 10; -fx-border-width: 5;" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="13.0">
-               <children>
-                  <ImageView fx:id="cameraViewImageView" fitHeight="380.0" fitWidth="530.0" pickOnBounds="true" smooth="false" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-               </children>
-            </AnchorPane>
-            <JFXButton fx:id="startCameraBtn" buttonType="RAISED" layoutX="13.0" layoutY="519.0" onAction="#startCamera" prefHeight="50.0" prefWidth="557.0" style="-fx-background-color: #130000;" text="Start Camera" textFill="WHITE" AnchorPane.leftAnchor="13.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </JFXButton>
-            <AnchorPane fx:id="errorPane" layoutX="88.0" layoutY="430.0" visible="false">
-               <children>
-                  <VBox>
-                     <children>
-                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="408.0" text="Error capturing image!" textAlignment="CENTER" textFill="RED">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="20.0" prefWidth="406.0" text="Please make sure the enviroment is well illuminated " textAlignment="CENTER" textFill="RED">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="10.0" layoutY="37.0" prefHeight="20.0" prefWidth="407.0" text="the student is starring directly at the camera light and try again" textAlignment="CENTER" textFill="RED">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="-30.0" layoutY="-86.0" prefHeight="44.0" prefWidth="1208.0" AnchorPane.bottomAnchor="656.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane prefHeight="40.0" prefWidth="1350.0" style="-fx-background-color: #130000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <HBox layoutX="1292.0" layoutY="5.0" AnchorPane.rightAnchor="8.0">
-               <children>
-                  <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#minimizeWindow" text=" " />
-                  <JFXButton contentDisplay="GRAPHIC_ONLY" onAction="#maximizeWindow" text=" " />
-                  <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="41.0" layoutY="10.0" onAction="#closeWindow" text=" ">
-                     <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="REMOVE" size="20.0" />
-                     </graphic>
-                  </JFXButton>
-               </children>
-            </HBox>
-            <GlyphsStack layoutX="465.0" layoutY="58.0" />
-            <Label layoutX="38.0" text="ADD NEW STUDENT" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-            </Label>
+                       </Label>
+                   </children>
+               </AnchorPane>
          </children>
       </AnchorPane>
    </children>

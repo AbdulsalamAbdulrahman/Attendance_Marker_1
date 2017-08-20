@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <AnchorPane maxHeight="600.0" maxWidth="1111.0" prefHeight="600.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.controller.MarkAttendancePageController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="1111.0" style="-fx-border-color: #130000; -fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+       <AnchorPane prefHeight="600.0" prefWidth="1111.0"
+                   style="-fx-border-color: #FF7F27; -fx-border-width: 10; -fx-background-color: white;"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane layoutX="24.0" layoutY="71.0">
                <children>
-                  <AnchorPane layoutX="17.0" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: #130000; -fx-border-radius: 10; -fx-border-width: 5;">
+                   <AnchorPane layoutX="17.0" prefHeight="400.0" prefWidth="600.0"
+                               style="-fx-border-color: #FF7F27; -fx-border-radius: 10; -fx-border-width: 5;">
                      <children>
                         <ImageView fx:id="cameraImageView" fitHeight="374.0" fitWidth="570.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" smooth="false" />
                      </children>
                   </AnchorPane>
-                  <JFXButton fx:id="startCameraButton" buttonType="RAISED" layoutX="15.0" layoutY="449.0" onAction="#startCamera" prefHeight="50.0" prefWidth="600.0" style="-fx-background-color: #130000;" text="Start Camera" textFill="WHITE">
+                   <JFXButton fx:id="startCameraButton" buttonType="RAISED" layoutX="15.0" layoutY="449.0"
+                              onAction="#startCamera" prefHeight="50.0" prefWidth="600.0"
+                              style="-fx-background-color: #FF7F27;" text="Start Camera" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -75,7 +75,8 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton contentDisplay="RIGHT" layoutX="235.0" layoutY="517.0" onAction="#nextStudent" style="-fx-background-color: #130000;" text="Next Student" textFill="WHITE">
+                   <JFXButton contentDisplay="RIGHT" layoutX="235.0" layoutY="517.0" onAction="#nextStudent"
+                              style="-fx-background-color: #FF7F27;" text="Next Student" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_CIRCLE_ALT_RIGHT" size="20.0" />
                      </graphic>
@@ -85,7 +86,9 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1020.0" layoutY="2.0" prefHeight="53.0" prefWidth="1111.0" style="-fx-background-color: #130000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+             <AnchorPane layoutX="1020.0" layoutY="2.0" prefHeight="53.0" prefWidth="1111.0"
+                         style="-fx-background-color: #FF7F27;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                         AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton contentDisplay="GRAPHIC_ONLY" layoutX="1071.0" layoutY="6.0" onAction="#closeWindow" AnchorPane.rightAnchor="4.0">
                      <font>

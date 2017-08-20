@@ -3,27 +3,31 @@ package main;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import main.face_recognition.OpencvFaceRecogniser;
 import main.ui.utils.Navigation;
 import org.opencv.core.Core;
-import main.ui.controller.RegisterNewStudentController;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(Navigation.REGISTER_NEW_STUDENT));
-        //Parent root = FXMLLoader.load(getClass().getResource("ui/fxml/user_home_page.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Navigation.LOGIN_PAGE));
 
-        AnchorPane root = loader.load();
+        Parent root = loader.load();
+
+        /*JFXDecorator decorator = new JFXDecorator(primaryStage, root, false, false, true);
+        decorator.setCustomMaximize(true);
+        decorator.setMaximized(true);
+        decorator.setBorder(Border.EMPTY);
+
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setScene(new Scene(decorator));*/
 
         primaryStage.setScene(new Scene(root));
-        primaryStage.initStyle(StageStyle.UNDECORATED);
 
         //RegisterNewStudentController controller = loader.getController();
 

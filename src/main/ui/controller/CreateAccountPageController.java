@@ -7,13 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import main.database.LecturerDB;
 import main.model.Lecturer;
 import main.ui.utils.AlertDialogs;
@@ -111,18 +111,22 @@ public class CreateAccountPageController implements Initializable {
 
     }
 
-    @FXML
-    void closeWindow(ActionEvent event) {
-
-    }
 
     @FXML
-    void maximizeWindow(ActionEvent event) {
+    void signin(ActionEvent event) {
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Navigation.LOGIN_PAGE));
 
-    }
+        Parent root = null;
+        try {
+            root = loader.load();
 
-    @FXML
-    void minimizeWindow(ActionEvent event) {
+            stage.setScene(new Scene(root));
+            // stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

@@ -21,7 +21,7 @@ public class AlertDialogs {
 
         confirmation.getButtonTypes().
 
-                setAll(new ButtonType[]{yes, no});
+                setAll(yes, no);
 
         Optional<ButtonType> result = confirmation.showAndWait();
         return result;
@@ -34,7 +34,7 @@ public class AlertDialogs {
 
         error.initModality(Modality.APPLICATION_MODAL);
 
-        error.showAndWait();
+        error.show();
     }
 
     public static void showInformationDialog(String msg){
@@ -44,6 +44,6 @@ public class AlertDialogs {
 
         error.initModality(Modality.APPLICATION_MODAL);
 
-        error.showAndWait();
+        error.show();
     }
 }

@@ -44,3 +44,19 @@
     -fx-text-fill: #ffffff;
 }
 
+.user-home-button1:hover{
+-fx-background-color:  #C3C3C3
+
+}
+
+.user-home-button:hover{
+-fx-background-color:  #C3C3C3
+
+}
+
+.user-home-button{
+-fx-border-color:  #130000;
+-fx-border-radius: 20;
+-fx-border-width: 5;
+
+}
