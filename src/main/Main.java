@@ -28,6 +28,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(decorator));*/
 
         primaryStage.setScene(new Scene(root));
+        primaryStage.setIconified(false);
 
         //RegisterNewStudentController controller = loader.getController();
 

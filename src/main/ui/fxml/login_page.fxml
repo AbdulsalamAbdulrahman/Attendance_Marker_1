@@ -3,12 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXSpinner?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="700.0" prefWidth="1370.0"
-            style="-fx-background-color: #130000;" stylesheets="@../css/ui.css" xmlns="http://javafx.com/javafx/8.0.111"
-            fx:controller="main.ui.controller.LoginPageController">
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1370.0" style="-fx-background-color: #130000;" stylesheets="@../css/ui.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ui.controller.LoginPageController">
    <children>
        <AnchorPane layoutX="401.0" layoutY="95.0" AnchorPane.leftAnchor="430.0">
          <children>
@@ -16,81 +19,61 @@
                <children>
                    <AnchorPane layoutY="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                        <children>
-                           <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="1.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
+                           <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="1.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                        </children>
                    </AnchorPane>
-                   <AnchorPane layoutX="60.0" layoutY="440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                               AnchorPane.topAnchor="350.0">
+                   <AnchorPane layoutX="60.0" layoutY="440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="350.0">
                        <children>
-                           <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="21.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
-                           <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0"
-                                      AnchorPane.rightAnchor="0.0"/>
+                           <Separator layoutY="8.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="21.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="10.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                           <Separator layoutY="12.0" minHeight="6.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                        </children>
                    </AnchorPane>
-                   <TextField fx:id="staffIdTextField" layoutX="38.0" layoutY="85.0" prefHeight="60.0" prefWidth="500.0"
-                              promptText="Staff Id" styleClass="regist-text-fields" AnchorPane.leftAnchor="50.0"
-                              AnchorPane.rightAnchor="50.0">
+                   <TextField fx:id="staffIdTextField" layoutX="38.0" layoutY="85.0" prefHeight="60.0" prefWidth="500.0" promptText="Staff Id" styleClass="regist-text-fields" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                        <font>
-                           <Font size="20.0"/>
+                           <Font size="20.0" />
                        </font>
                    </TextField>
-                   <PasswordField fx:id="passwordTextField" layoutX="65.0" layoutY="173.0" prefHeight="60.0"
-                                  prefWidth="500.0" promptText="password" styleClass="regist-text-fields"
-                                  AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+                   <PasswordField fx:id="passwordTextField" layoutX="65.0" layoutY="173.0" onAction="#login" prefHeight="60.0" prefWidth="500.0" promptText="password" styleClass="regist-text-fields" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
                        <font>
-                           <Font size="20.0"/>
+                           <Font size="20.0" />
                        </font>
                    </PasswordField>
-                   <CheckBox fx:id="adminCheck" layoutX="52.0" layoutY="268.0" mnemonicParsing="false"
-                             onAction="#adminCheckBoxClicked" text="Admin" textFill="#ffc7c7"
-                             AnchorPane.leftAnchor="52.0">
+                   <CheckBox fx:id="adminCheck" layoutX="52.0" layoutY="268.0" mnemonicParsing="false" onAction="#adminCheckBoxClicked" text="Admin" textFill="#ffc7c7" AnchorPane.leftAnchor="52.0">
                        <font>
-                           <Font size="20.0"/>
+                           <Font size="20.0" />
                        </font>
                    </CheckBox>
-                   <FontAwesomeIconView fill="#7c7575" glyphName="UNLOCK_ALT" layoutX="446.0" layoutY="213.0"
-                                        size="30.0"/>
-                   <JFXButton layoutX="230.0" layoutY="254.0" onAction="#login" prefHeight="60.0" prefWidth="250.0"
-                              style="-fx-background-color: #7F7F7F;" styleClass="register-button" text="Login"
-                              textFill="WHITE">
+                   <FontAwesomeIconView fill="#7c7575" glyphName="UNLOCK_ALT" layoutX="446.0" layoutY="213.0" size="30.0" />
+                   <JFXButton layoutX="230.0" layoutY="254.0" onAction="#login" prefHeight="60.0" prefWidth="250.0" style="-fx-background-color: #7F7F7F;" styleClass="register-button" text="Login" textFill="WHITE">
                        <font>
-                           <Font size="20.0"/>
+                           <Font size="20.0" />
                        </font>
                    </JFXButton>
                </children>
              </AnchorPane>
-             <FontAwesomeIconView fill="#7c7575" glyphName="USER" layoutX="444.0" layoutY="161.2857208251953"
-                                  size="30.0"/>
+             <FontAwesomeIconView fill="#7c7575" glyphName="USER" layoutX="444.0" layoutY="161.2857208251953" size="30.0" />
              <Label layoutX="24.0" layoutY="448.0" text="Dont have an account?" textFill="#c9c2c2">
                  <font>
-                     <Font size="18.0"/>
+                     <Font size="18.0" />
                  </font>
              </Label>
-             <JFXButton layoutX="346.0" layoutY="441.0" onAction="#signup" text="Sign up here" textFill="WHITE"
-                        underline="true">
+             <JFXButton layoutX="346.0" layoutY="441.0" onAction="#signup" text="Sign up here" textFill="WHITE" underline="true">
                  <font>
-                     <Font name="System Bold" size="20.0"/>
+                     <Font name="System Bold" size="20.0" />
                  </font>
              </JFXButton>
              <Label layoutX="265.0" text="STAFF LOGIN" textFill="#948989">
                  <font>
-                     <Font name="FontAwesome Regular" size="36.0"/>
+                     <Font name="FontAwesome Regular" size="36.0" />
                  </font>
              </Label>
          </children>
        </AnchorPane>
-       <JFXSpinner fx:id="loginSpinner" layoutX="868.0" layoutY="406.0" visible="false"/>
+       <JFXSpinner fx:id="loginSpinner" layoutX="868.0" layoutY="406.0" visible="false" />
    </children>
 </AnchorPane>

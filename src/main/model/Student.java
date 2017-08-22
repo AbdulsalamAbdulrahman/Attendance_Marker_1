@@ -1,7 +1,5 @@
 package main.model;
 
-import javafx.scene.image.Image;
-
 public class Student {
     private int id;
     private String firstName;
@@ -11,7 +9,7 @@ public class Student {
     private String sex;
     private byte [] image;
 
-    public Student(int id, String firstName, String lastName, String otherName, String matricNumber, String sex, byte[] image) {
+    public Student(int id, String firstName, String lastName, String otherName, String sex, String matricNumber, byte[] image) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

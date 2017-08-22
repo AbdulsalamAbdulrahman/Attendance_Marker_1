@@ -11,6 +11,28 @@ import java.io.FileInputStream;
 public class Images {
 
     public static byte[] getByteArrayFromFile(String imageLocation){
+
+        /*ByteArrayOutputStream bos = null;
+        try{
+            File f = new File(imageLocation);
+            FileInputStream fis = new FileInputStream(f);
+
+            byte[] buffer = new byte[1024];
+
+            bos = new ByteArrayOutputStream();
+
+            for(int len; (len = fis.read(buffer)) != -1;){
+                bos.write(buffer, 0, len);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+
+        return bos != null ? bos.toByteArray() : null;
+
+        */
      byte[]result=null;
 
          FileInputStream fileInStr=null;

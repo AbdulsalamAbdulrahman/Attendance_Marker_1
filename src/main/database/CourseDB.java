@@ -10,7 +10,7 @@ public class CourseDB {
     private Connection conn;
     private Statement statement;
 
-    private static final String TABLE_NAME = "table_name";
+    private static final String TABLE_NAME = "course_table";
 
     private static final String ID = "_id";
     private static final String COURSE_CODE = "course_code";
@@ -20,15 +20,25 @@ public class CourseDB {
     private static final String SEMESTER = "semester";
     private static final String LECTURER_ID = "lecturer_id";
 
-    public CourseDB() {
+    private static CourseDB courseDB = null;
+
+    private CourseDB() {
         createTable();
+    }
+
+    public static CourseDB getInstance() {
+        if (courseDB == null) {
+            courseDB = new CourseDB();
+        }
+        return courseDB;
     }
 
     private void createTable() {
         this.conn = DatabaseConnection.getConnection();
+
         try {
-            this.statement = this.conn.createStatement();
-            String createTable = "CREATE TABLE IF NOT EXISTS '" + this.TABLE_NAME + "' (" +
+            statement = conn.createStatement();
+            String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
                     ID + " INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " +
                     COURSE_CODE + " TEXT, " +
                     COURSE_TITLE + " TEXT, " +
@@ -40,21 +50,21 @@ public class CourseDB {
             this.statement.execute(createTable);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
             if (conn != null) {
                 try {
-                    conn.clearWarnings();
+                    conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -75,8 +85,6 @@ public class CourseDB {
                     LECTURER_ID + ") " +
                     "VALUES (?, ?, ?, ?, ?, ?)";
 
-
-            conn.setAutoCommit(false);
             preparedStatement = conn.prepareStatement(insertCourseString);
 
             preparedStatement.setString(1, course.getCourseTitle());
@@ -89,21 +97,21 @@ public class CourseDB {
             preparedStatement.execute();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
             if (conn != null) {
                 try {
-                    conn.clearWarnings();
+                    conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -117,9 +125,9 @@ public class CourseDB {
         PreparedStatement preparedStatement = null;
         try {
 
-            String updateCourse = "UPDATE '" + TABLE_NAME + "' SET " +
-                    COURSE_TITLE + "=? " +
+            String updateCourse = "UPDATE " + TABLE_NAME + " SET " +
                     COURSE_CODE + "=? " +
+                    COURSE_TITLE + "=? " +
                     SESSION + "=? " +
                     CREDIT_UNIT + "=? " +
                     SEMESTER + "=?" +
@@ -129,8 +137,8 @@ public class CourseDB {
             conn.setAutoCommit(false);
             preparedStatement = conn.prepareStatement(updateCourse);
 
-            preparedStatement.setString(1, course.getCourseTitle());
-            preparedStatement.setString(2, course.getCourseCode());
+            preparedStatement.setString(1, course.getCourseCode());
+            preparedStatement.setString(2, course.getCourseTitle());
             preparedStatement.setString(3, course.getSession());
             preparedStatement.setString(4, course.getCreditUnit());
             preparedStatement.setString(5, course.getSemester());
@@ -138,21 +146,21 @@ public class CourseDB {
             preparedStatement.execute();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
             if (conn != null) {
                 try {
-                    conn.clearWarnings();
+                    conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -165,36 +173,36 @@ public class CourseDB {
         try {
             this.statement = this.conn.createStatement();
 
-            String getStudent = "SELECT * FROM '" + TABLE_NAME + "' WHERE " +
+            String getStudent = "SELECT * FROM " + TABLE_NAME + " WHERE " +
                     COURSE_CODE + "=" + courseCode + " AND " +
                     LECTURER_ID + "=" + lecturerId;
 
             resultSet = this.statement.executeQuery(getStudent);
             if (resultSet.next()) {
                 return new Course(resultSet
-                        .getString(COURSE_TITLE), resultSet
                         .getString(COURSE_CODE), resultSet
+                        .getString(COURSE_TITLE), resultSet
                         .getString(SESSION), resultSet
                         .getString(CREDIT_UNIT), resultSet
                         .getString(SEMESTER));
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            if(resultSet != null){
+            System.out.println(e.getMessage());
+        } finally {
+            if (resultSet != null) {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
-            if(conn != null){
+            if (conn != null) {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -202,79 +210,110 @@ public class CourseDB {
         return null;
     }
 
-        public List<Course> getAllCourse () {
+    public List<Course> getAllCourse(String lecturerId) {
         List<Course> courses = new ArrayList<>();
 
-            ResultSet resultSet = null;
-            this.conn = DatabaseConnection.getConnection();
-            try {
-                this.statement = this.conn.createStatement();
-
-                String getStudent = "SELECT * FROM '" + TABLE_NAME+ "'";
-
-                resultSet = this.statement.executeQuery(getStudent);
-                while (resultSet.next()) {
-                    Course temp =
-                            new Course(resultSet
-                            .getString(COURSE_TITLE), resultSet
-                            .getString(COURSE_CODE), resultSet
-                            .getString(SESSION), resultSet
-                            .getString(CREDIT_UNIT), resultSet
-                            .getString(SEMESTER));
-
-                    courses.add(temp);
-                }
-
-                return courses;
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }finally {
-                if(resultSet != null){
-                    try {
-                        resultSet.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                if(conn != null){
-                    try {
-                        conn.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            return null;
-        }
-
-    public void removeCourse(int id) {
-
+        ResultSet resultSet = null;
         this.conn = DatabaseConnection.getConnection();
         try {
             this.statement = this.conn.createStatement();
-            String delete = "DELETE * FROM " + TABLE_NAME + " WHERE " + "_id" + "=" + id;
 
-            this.statement.execute(delete);
+            String getCourse = "SELECT * FROM " + TABLE_NAME + " WHERE " +
+                    LECTURER_ID + "=" + lecturerId;
+
+            resultSet = this.statement.executeQuery(getCourse);
+            while (resultSet.next()) {
+                Course temp =
+                        new Course(resultSet
+                                .getString(COURSE_CODE), resultSet
+                                .getString(COURSE_TITLE), resultSet
+                                .getString(SESSION), resultSet
+                                .getString(CREDIT_UNIT), resultSet
+                                .getString(SEMESTER));
+
+                courses.add(temp);
+            }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
-            if (statement != null) {
+            if (resultSet != null) {
                 try {
-                    statement.close();
+                    resultSet.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
             if (conn != null) {
                 try {
-                    conn.clearWarnings();
+                    conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+
+        System.out.println("got here");
+
+        return courses;
+    }
+
+    public void removeCourse(Course code) {
+
+        this.conn = DatabaseConnection.getConnection();
+        try {
+            this.statement = this.conn.createStatement();
+            String delete = "DELETE FROM " + TABLE_NAME + " WHERE " + COURSE_CODE + "=" + code;
+
+            this.statement.execute(delete);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+    public void alterTable(Course oldCourse, Course newCourse) {
+
+        conn = DatabaseConnection.getConnection();
+        try {
+            statement = this.conn.createStatement();
+            String renambe = "ALTER TABLE " + oldCourse.getCourseCode() + " RENAME TO " + newCourse.getCourseCode();
+
+            statement.execute(renambe);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
             }
         }

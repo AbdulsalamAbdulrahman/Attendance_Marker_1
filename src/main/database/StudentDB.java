@@ -25,24 +25,43 @@ public class StudentDB {
     }
 
     private void createTable() {
-        this.conn = DatabaseConnection.getConnection();
+        conn = DatabaseConnection.getConnection();
         try {
-            this.statement = this.conn.createStatement();
-            String createTable = "CREATE TABLE IF NOT EXISTS '" + this.TABLE_NAME + "' (" +
-                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, " +
+            statement = this.conn.createStatement();
+            String createTable = "CREATE TABLE IF NOT EXISTS '" + TABLE_NAME + "' (" +
+                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     FIRST_NAME + " TEXT, " +
                     LAST_NAME + " TEXT, " +
                     OTHER_NAME + " TEXT, " +
                     SEX + " TEXT, " +
                     MATRIC_NUMBER + " TEXT, " +
                     IMAGE + " BLOB)";
+/*
+            String createTable = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                    ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    FIRST_NAME + " TEXT, " +
+                    LAST_NAME + " TEXT, " +
+                    OTHER_NAME + " TEXT, " +
+                    SEX + " TEXT, " +
+                    MATRIC_NUMBER + " TEXT)";*/
 
-            this.statement.execute(createTable);
+            statement.execute(createTable);
+            System.out.println("table created");
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (statement != null) {
+
+            try {
+                statement.close();
+                conn.close();
+
+                System.out.println("connection closed");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            /*if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
@@ -56,28 +75,32 @@ public class StudentDB {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            }
+            }*/
         }
     }
 
     public boolean addStudent(Student student) {
-        this.conn = DatabaseConnection.getConnection();
+        conn = DatabaseConnection.getConnection();
         PreparedStatement preparedStatement = null;
 
         try {
 
-            String insertStudentString = "INSERT INTO " + this.TABLE_NAME + "(" +
-                    ID + ", " +
+
+//            String insertStudentString = "INSERT INTO " + TABLE_NAME + "VALUES(?, ?, ?, ?, ?, ?);";
+
+            String insertStudentString = "INSERT INTO " + TABLE_NAME + "(" +
                     FIRST_NAME + ", " +
                     LAST_NAME + ", " +
                     OTHER_NAME + ", " +
                     SEX + ", " +
                     MATRIC_NUMBER + ", " +
                     IMAGE +
-                    ") VALUES(?, ?, ?, ?, ?, ?)";
+                    ") VALUES(?, ?, ?, ?, ?, ?);";
+/*
+            conn = DatabaseConnection.getConnection();
+            statement = conn.createStatement();
 
-           /* statement = this.conn.createStatement();
-            String insertStudentString = "INSERT INTO " + this.TABLE_NAME + "(" +
+            String insertStudentString = "INSERT INTO " + TABLE_NAME + "(" +
                     FIRST_NAME + ", " +
                     LAST_NAME + ", " +
                     OTHER_NAME + ", " +
@@ -88,13 +111,16 @@ public class StudentDB {
                     student.getFirstName() + "', '" +
                     student.getLastName() + "', '" +
                     student.getOtherName() + "', '" +
-                    student.getMatricNumber() + "', '" +
-                    student.getSex() + "', " +
-                    123435 +
+                    student.getSex() + "', '" +
+                    student.getMatricNumber() + "', " +
+                    student.getImage() +
                     ")";
 
+            System.out.println(insertStudentString);
 
-                    boolean success = statement.execute(insertStudentString);*/
+            statement.execute(insertStudentString);
+            
+*/
 
             //conn.setAutoCommit(false);
             preparedStatement = conn.prepareStatement(insertStudentString);
@@ -108,29 +134,25 @@ public class StudentDB {
             preparedStatement.setString(5, student.getMatricNumber());
             preparedStatement.setBytes(6, student.getImage());
 
-            boolean success =  preparedStatement.execute();
 
+            preparedStatement.execute();
 
-            conn.commit();
-
-            if(success){
-                System.out.println("success");
-                return true;
-            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            if (preparedStatement != null) {
+            /*if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println("prepared statement" + e.getMessage());
                 }
-            }
+            }*/
 
             if (conn != null) {
                 try {
+                    //statement.close();
+                    preparedStatement.close();
                     conn.close();
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -146,7 +168,7 @@ public class StudentDB {
         this.conn = DatabaseConnection.getConnection();
         PreparedStatement preparedStatement = null;
         try {
-            String updateStudent = "UPDATE " + this.TABLE_NAME + " SET " +
+            String updateStudent = "UPDATE " + TABLE_NAME + " SET " +
                     FIRST_NAME + "=?, " +
                     LAST_NAME + "=?, " +
                     OTHER_NAME + "=?, " +
@@ -168,13 +190,13 @@ public class StudentDB {
             preparedStatement.execute();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (preparedStatement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -182,7 +204,7 @@ public class StudentDB {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -194,7 +216,10 @@ public class StudentDB {
         this.conn = DatabaseConnection.getConnection();
         ResultSet resultSet = null;
         try {
-            String getStudent = "SELECT * FROM " + this.TABLE_NAME + " WHERE " + ID + "=" + id;
+
+            statement = conn.createStatement();
+
+            String getStudent = "SELECT * FROM " + TABLE_NAME + " WHERE " + ID + "=" + id;
 
             resultSet = this.statement.executeQuery(getStudent);
             if (resultSet.next()) {
@@ -210,13 +235,21 @@ public class StudentDB {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -224,7 +257,7 @@ public class StudentDB {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -234,28 +267,29 @@ public class StudentDB {
 
     public List<Student> getAllStudent() {
         List<Student> studentList = new ArrayList<>();
-        this.conn = DatabaseConnection.getConnection();
+        conn = DatabaseConnection.getConnection();
         ResultSet resultSet = null;
-        try {
-            String getStudent = "SELECT * FROM " + this.TABLE_NAME ;
 
-           resultSet = this.statement.executeQuery(getStudent);
+        try {
+
+            statement = conn.createStatement();
+
+            String getStudent = "SELECT * FROM " + TABLE_NAME;
+
+            resultSet = this.statement.executeQuery(getStudent);
             while (resultSet.next()) {
                 Student temp =
                         new Student(resultSet
-                        .getInt(ID), resultSet
-                        .getString(FIRST_NAME), resultSet
-                        .getString(LAST_NAME), resultSet
-                        .getString(OTHER_NAME), resultSet
-                        .getString(SEX), resultSet
-                        .getString(MATRIC_NUMBER), resultSet
-                        .getBytes(IMAGE));
+                                .getInt(ID), resultSet
+                                .getString(FIRST_NAME), resultSet
+                                .getString(LAST_NAME), resultSet
+                                .getString(OTHER_NAME), resultSet
+                                .getString(SEX), resultSet
+                                .getString(MATRIC_NUMBER), resultSet
+                                .getBytes(IMAGE));
 
                 studentList.add(temp);
             }
-
-            return studentList;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -264,7 +298,15 @@ public class StudentDB {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -276,27 +318,24 @@ public class StudentDB {
                 }
             }
         }
-
-        return null;
+        return studentList;
     }
 
     public void removeStudent(int id) {
         this.conn = DatabaseConnection.getConnection();
         try {
-            this.statement = this.conn.createStatement();
-
-            String delete = "DELETE * FROM " + this.TABLE_NAME + " WHERE " + "_id" + "=" + id;
-
-            this.statement.execute(delete);
+            statement = conn.createStatement();
+            String delete = "DELETE FROM " + TABLE_NAME + " WHERE " + ID + "=" + id;
+            statement.execute(delete);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         } finally {
             if (statement != null) {
                 try {
                     statement.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -304,7 +343,7 @@ public class StudentDB {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
@@ -317,11 +356,11 @@ public class StudentDB {
         ResultSet resultSet = null;
 
         try {
-            String selectQuery= "SELECT * FROM " + TABLE_NAME + " ORDER BY " + ID + "DESC LIMIT 1";
+            String selectQuery = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + ID + "DESC LIMIT 1";
 
             resultSet = this.statement.executeQuery(selectQuery);
             if (resultSet.next()) {
-                return  resultSet .getInt(ID);
+                return resultSet.getInt(ID);
             }
 
         } catch (SQLException e) {
@@ -331,7 +370,7 @@ public class StudentDB {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
 
@@ -339,11 +378,13 @@ public class StudentDB {
                 try {
                     conn.close();
                 } catch (SQLException e) {
-                    e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
             }
         }
 
         return -1;
     }
+
+
 }
